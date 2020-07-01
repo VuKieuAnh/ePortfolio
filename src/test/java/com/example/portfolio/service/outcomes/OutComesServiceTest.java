@@ -40,6 +40,12 @@ class OutComesServiceTest {
     }
 
     @Test
+    void remove() {
+        outcomesRepository.deleteById(1L);
+        verify(outcomesRepository, times(1)).deleteById(1L);
+    }
+
+    @Test
     @DisplayName("save outcome call outcomeRepo 1")
     void whensave_thenCallOutcomRepo(){
         outComesService.save(outcomes);
@@ -74,9 +80,12 @@ class OutComesServiceTest {
     void save() {
     }
 
-    @Test
-    void remove() {
-    }
+//    @Test
+//    void remove() {
+//        outcomesRepository.deleteById(1L);
+//        verify(outcomesRepository, times(1)).deleteById(1L);
+//    }
+
 
     @Test
     void findByTitle() {
